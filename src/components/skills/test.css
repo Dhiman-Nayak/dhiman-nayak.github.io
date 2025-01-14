@@ -1,0 +1,18 @@
+@keyframes float {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .animate-float {
+    display: flex;
+    animation: float 32s linear infinite;
+  }
+  img{
+    aspect-ratio: 3/2;
+    height: 30px;
+    width: 30px;
+  }

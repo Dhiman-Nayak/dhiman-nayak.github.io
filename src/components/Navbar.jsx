@@ -28,7 +28,7 @@ const Navbar = () => {
     const navLinks = [
         { to: "/", text: "Home", className: "hover:text-yellow-200" },
         { to: "/projects", text: "Projects", className: "hover:text-yellow-200" },
-        { to: "/about", text: "About", className: "hover:text-yellow-200" },
+        // { to: "/about", text: "About", className: "hover:text-yellow-200" },
         { to: "/contact", text: "Contact", className: "bg-[#ba86ea81] hover:text-yellow-200" }
     ];
 

@@ -1,173 +1,57 @@
-// import React from 'react';
-// import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import React from 'react';
+import "./Test.css"
+import cpp from "../assets/C++-Logo.svg"
+import js from "../assets/javascript-1.svg"
+import python from "../assets/python-5.svg"
+import solidity from "../assets/solidity.svg"
+import html from "../assets/html-icon.svg"
+import css from "../assets/css.svg"
 
-// const ContactComponent = () => {
-//   const socialLinks = [
-//     { name: 'Email', icon: <FaEnvelope />, url: 'mailto:dhimannayak003@gmail.com', color: 'bg-red-500' },
-//     { name: 'GitHub', icon: <FaGithub />, url: 'https://github.com/yourusername', color: 'bg-gray-800' },
-//     { name: 'LinkedIn', icon: <FaLinkedin />, url: 'https://linkedin.com/in/yourusername', color: 'bg-blue-600' },
-//     { name: 'Twitter', icon: <FaTwitter />, url: 'https://twitter.com/yourusername', color: 'bg-blue-400' },
-//     { name: 'Instagram', icon: <FaInstagram />, url: 'https://instagram.com/yourusername', color: 'bg-pink-600' },
-//   ];
+import reactLogo from '../assets/react.svg'
+import nodejs from "../assets/Node.js-Logo.wine.svg"
+import tailwind from "../assets/tailwindcss.svg"
 
-//   return (
-//     <div className=" min-h-screen flex items-center justify-center p-4">
-//       <div className="bg-gray-200 bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-lg w-full">
-//         <h2 className="text-4xl font-extrabold text-center mb-6 text-white">Get in Touch</h2>
-//         <p className="text-center text-gray-100 mb-8">
-//           Let's connect! Reach out through any of these platforms.
-//         </p>
-//         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-//           {socialLinks.map((link) => (
-//             <a
-//               key={link.name}
-//               href={link.url}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className={`flex items-center justify-center p-4 rounded-lg ${link.color} hover:opacity-90 transition-all duration-300 transform hover:scale-105`}
-//             >
-//               <span className="mr-3 text-white text-2xl">{link.icon}</span>
-//               <span className="font-medium text-white">{link.name}</span>
-//             </a>
-//           ))}
-//         </div>
-//         <div className="mt-12 text-center">
-//           <p className="text-gray-200 mb-4">or send me a message directly</p>
-//           <button className="bg-white text-purple-600 font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-colors duration-300">
-//             Contact Me
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+import mongodb from "../assets/MongoDB-Logo.wine.svg"
+import mysql from "../assets/MySQL-Logo.wine.svg"
 
-// export default ContactComponent;
+import git from "../assets/git-icon.svg"
+import postman from "../assets/postman.svg"
 
-import React, { useState } from 'react';
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+const skillsData = [
+  { name: 'React', icon: reactLogo, color: '#61DAFB' },
+  { name: 'Node.js', icon: nodejs, color: '#339933' },
+  { name: 'JavaScript', icon: js, color: '#F7DF1E' },
+  { name: 'Python', icon: python, color: '#3776AB' },
+  { name: 'cpp', icon: cpp, color: '#3776AB' },
+  { name: 'html', icon: html, color: '#3776AB' },
+  { name: 'css', icon: css, color: '#3776AB' },
+  { name: 'Tailwind CSS', icon: tailwind, color: '#06B6D4' },
+  // { name: 'Blockchain', icon: SiBlockchain, color: '#FF6B6B' },
+  { name: 'mongodb', icon: mongodb, color: '#4CAF50' },
+  { name: 'mysql', icon: mysql, color: '#4CAF50' },
+];
 
-const ContactComponent = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-
-  const socialLinks = [
-    { name: 'Email', icon: <FaEnvelope />, url: 'mailto:your.email@gmail.com', color: 'bg-red-500' },
-    { name: 'GitHub', icon: <FaGithub />, url: 'https://github.com/yourusername', color: 'bg-gray-800' },
-    { name: 'LinkedIn', icon: <FaLinkedin />, url: 'https://linkedin.com/in/yourusername', color: 'bg-blue-600' },
-    { name: 'Twitter', icon: <FaTwitter />, url: 'https://twitter.com/yourusername', color: 'bg-blue-400' },
-    { name: 'Instagram', icon: <FaInstagram />, url: 'https://instagram.com/yourusername', color: 'bg-pink-600' },
-  ];
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send the form data to a server
-    console.log('Form submitted:', formData);
-    // Reset form and close modal
-    setFormData({ name: '', email: '', message: '' });
-    setIsModalOpen(false);
-  };
-
+const FloatingSkills = () => {
   return (
-    <div className=" min-h-screen flex items-center justify-center p-4">
-      <div className="contact-container backdrop-filter backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-lg w-full">
-        <h2 className="text-4xl font-medium text-center mb-6 text-white">Get in Touch</h2>
-        <p className="text-center text-gray-100 mb-8">
-          Let's connect! Reach out through any of these platforms.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {socialLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center justify-center p-4 rounded-lg hover:${link.color} hover:opacity-90 transition-all duration-300 transform hover:scale-105`}
-            >
-              <span className="mr-3 text-white text-2xl">{link.icon}</span>
-              <span className="font-medium text-white">{link.name}</span>
-            </a>
-          ))}
-        </div>
-        <div className="mt-12 text-center">
-          <p className="text-gray-200 mb-4">or send me a message directly</p>
-          <button 
-            onClick={() => setIsModalOpen(true)}
-            className="bg-white text-purple-600 font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-colors duration-300"
+    <div className="relative overflow-hidden w-full h-32 bg-transparent">
+      <div className="absolute whitespace-nowrap animate-float">
+        {skillsData.map((skill, index) => (
+          <div
+            key={index}
+            className="inline-flex items-center opacity-70 hover:opacity-100 justify-center mr-8 p-4 rounded-lg shadow-lg bg-gradient-to-r from-gray-900 to-gray-800"
+            style={{
+              color: skill.color,
+              animationDelay: `${index * 0.5}s`,
+            }}
           >
-            Contact Me
-          </button>
-        </div>
-      </div>
-
-      {/* Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-          <div className="bg-white bg-opacity-90 rounded-lg p-8 max-w-md w-full">
-            <h3 className="text-2xl font-bold mb-4">Send a Message</h3>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
-                  rows="4"
-                  required
-                ></textarea>
-              </div>
-              <div className="flex justify-end">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  className="mr-2 px-4 py-2 text-gray-600 hover:text-gray-800"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
+            {/* <skill.icon className="text-4xl mr-3" /> */}
+            <img src={skill.icon} alt="" />
+            <span className="text-white font-medium">{skill.name}</span>
           </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   );
 };
 
-export default ContactComponent;
+export default FloatingSkills;

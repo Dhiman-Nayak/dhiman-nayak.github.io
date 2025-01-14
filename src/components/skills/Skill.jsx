@@ -18,75 +18,41 @@ import mysql from "../../assets/MySQL-Logo.wine.svg"
 import git from "../../assets/git-icon.svg"
 import postman from "../../assets/postman.svg"
 
-const lang = {
-    "JS": js,
-    "python": python,
-    "C++": cpp,
-    "Solidity": solidity,
-    "HTML": html,
-    "CSS": css,
-    "React JS": reactLogo,
-    "Node Js": nodejs,
-    "Tailwind CSS": tailwind,
-    "MongoDB": mongodb,
-    "MYSQL": mysql,
-    "git": git,
-    "Postman": postman
-}
-function Skill() {
-    // const lang = {
-    //     "JS": js,
-    //     "python": python,
-    //     "C++": cpp,
-    //     "Solidity": solidity,
-    //     "HTML":html,
-    //     "CSS" : css
-    // }
-    // const framework = {
-    //     "React JS": reactLogo,
-    //     "Node Js": nodejs,
-    //     "Tailwind CSS": tailwind
-    // }
-    // const database = {
-    //     "MongoDB": mongodb,
-    //     "MYSQL": mysql
-    // }
-    // const tool = {
-    //     "git": git,
-    //     "Postman": postman
-    // }
-    return (
-        <div>
-            <div className=" py-10">
-                <div className="container mx-auto px-4">
+const skillsData = [
+  { name: 'React', icon: reactLogo, color: '#61DAFB' },
+  { name: 'Node.js', icon: nodejs, color: '#339933' },
+  { name: 'JavaScript', icon: js, color: '#F7DF1E' },
+  { name: 'Python', icon: python, color: '#3776AB' },
+  { name: 'cpp', icon: cpp, color: '#3776AB' },
+  { name: 'html', icon: html, color: '#3776AB' },
+  { name: 'css', icon: css, color: '#3776AB' },
+  { name: 'Tailwind CSS', icon: tailwind, color: '#06B6D4' },
+  // { name: 'Blockchain', icon: SiBlockchain, color: '#FF6B6B' },
+  { name: 'mongodb', icon: mongodb, color: '#4CAF50' },
+  { name: 'mysql', icon: mysql, color: '#4CAF50' },
+];
 
+const Skills = () => {
+  return (
+    <div className="relative overflow-hidden w-full h-32 bg-transparent">
+      <div className="absolute whitespace-nowrap animate-float">
+        {skillsData.map((skill, index) => (
+          <div
+            key={index}
+            className="inline-flex items-center pr-8 opacity-70 hover:opacity-100 justify-center mr-8 p-4 rounded-lg shadow-lg bg-gradient-to-r from-gray-900 to-gray-800"
+            style={{
+              color: skill.color,
+              animationDelay: `${index * 0.5}s`,
+            }}
+          >
+            {/* <skill.icon className="text-4xl mr-3" /> */}
+            <img src={skill.icon} alt="" />
+            <span className="text-white font-medium">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-                    
-                    <div className=" grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-10 gap-6">
-                        
-                        {Object.entries(lang).map(([key, value], index) => (
-                            <motion.div
-                                key={key}
-                                className="flex flex-col items-center justify-center p-2  bg-opacity-50 rounded-lg backdrop-blur-sm hover:bg-opacity-10 transition-all duration-300"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                whileHover={{ scale: 1.05 }}
-                            >
-                                <img
-                                    src={value}
-                                    alt={key}
-                                    className={`w-8 h-8  hover:opacity-100 transition ease-in-out duration-300 bg-white`}
-                                />
-                                {/* <h3 className="text-center text-sm   text-gray-200">{key}</h3> */}
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    )
-}
-
-export default Skill
+export default Skills;
