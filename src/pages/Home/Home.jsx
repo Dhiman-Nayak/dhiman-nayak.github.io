@@ -112,7 +112,7 @@ const Home = () => {
       {/* </div > */}
       <div className='my-12 py-12'>
 
-      <About0/>
+      {/* <About0/> */}
       </div>
       
 

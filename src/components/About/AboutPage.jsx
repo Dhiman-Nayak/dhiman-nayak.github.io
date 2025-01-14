@@ -20,8 +20,9 @@ function AboutPage() {
 
   return (
     <div>
-      <div className='container mx-auto px-12 py-6 mb-6 about-class '>
-        <div className='px-4 lg:px-40'>
+      <div className='container mx-auto px-4 py-6 mb-6 about-class '>
+        <div className='
+         lg:px-40'>
 
           
           <div className=" text-white ">
