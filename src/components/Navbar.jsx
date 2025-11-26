@@ -28,7 +28,7 @@ const Navbar = () => {
     const navLinks = [
         { to: "/", text: "Home", className: "hover:text-yellow-200" },
         { to: "/projects", text: "Projects", className: "hover:text-yellow-200" },
-        { to: "/about", text: "About", className: "hover:text-yellow-200" },
+        // { to: "/about", text: "About", className: "hover:text-yellow-200" },
         { to: "/contact", text: "Contact", className: "bg-[#ba86ea81] hover:text-yellow-200" }
     ];
 
@@ -55,10 +55,10 @@ const Navbar = () => {
                     isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`}
             >
-                <div className="flex flex-col items-center justify-center h-full gap-5">
+                <div className="flex flex-col items-center justify-center h-full gap-8">
                     {navLinks.map((link) => (
                         <Link key={link.to} to={link.to} onClick={closeMenu}>
-                            <p className={`px-4 py-2 text-white font-semibold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 ${link.className}`}>
+                            <p className={`px-6 py-2 text-white font-semibold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 ${link.className}`}>
                                 {link.text}
                             </p>
                         </Link>

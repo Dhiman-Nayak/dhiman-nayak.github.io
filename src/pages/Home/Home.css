@@ -18,3 +18,10 @@
 .about-class{
     max-width: calc(100% - 20px);
 }
+.profileImg{
+    /* width: calc(100%-50vw);
+    height: calc(100%-50vh); */
+    width: 55vw;
+    height: calc(100vh * 0.5);
+    margin-bottom: 0.9rem;
+}

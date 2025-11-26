@@ -77,30 +77,31 @@ const projects = [
         title: 'Twitter Clone',
         description:"The Twitter Clone is a full-stack web application built using the MERN stack (MongoDB, Express.js, React.js, and Node.js). It allows users to create accounts, post tweets, like/unlike tweets, follow/unfollow users, and view a feed of tweets from people they follow.",
         imageUrl:
-            "212.png", 
+            "https://dreamlandadventuretourism.com/wp-content/uploads/2023/12/img-world-ticket-from-dream.webp", 
         githubLink: 'https://github.com/Dhiman-Nayak/Twitter-clone',
         liveDemoLink: 'https://zwitterr.netlify.app/',
     },
     {
         title: 'PicX',
         description: "A React application for decentralized file storage, allowing users to securely store and manage their files.",
-        imageUrl: "212.png", 
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTofZXK-_G7CFJF8T32HbnSjj-Vtl9w9BLXUg&s", 
         githubLink: 'https://github.com/Dhiman-Nayak/PicX-Store-you-image-',
         liveDemoLink: '',
     },
+    
    
 ];
 import "./Project.css";
 function Project() {
     return (
-        <div className=" md:justify-center ">
-            <div className="flex flex-col md:flex-row md:justify-center md:space-x-4 md:overflow-x-auto overflow-x-auto px-4 py-8 custom-scrollbar">
+        <div className=" ">
+            <div className="text-center flex flex-col md:flex-row justify-center md:space-x-4 md:overflow-x-auto overflow-x-auto px-4 py-8 custom-scrollbar">
                 {/* for multiple project in laptopn md:overflow-x-scroll for scroll bar */}
                 {projects.map((project, index) => (
                     <Card
                         key={index}
                         maxW={{ base: '80%', md: 'sm' }}
-                        className="flex-shrink-0 m-2 bg-transparent border opacity-85 border-gray-200 rounded-lg shadow-lg overflow-hidden hover:bg-black hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                        className="flex-shrink-0 m-2 bg-transparent border opacity-85 border-gray-200 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform "
                     >
                         <CardBody className="bg-[#3c0d67b0] rounded-sm text-white">
                             <Image
