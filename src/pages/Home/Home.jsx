@@ -65,16 +65,16 @@ const Home = () => {
         </Link>
       </motion.div>
 
-      {/* Image and Icons */}
-      <div className="flex items-start justify-center md:space-x-8">
-        <motion.img
-          src="IMG20240828202308-Photoroom.png"
-          alt="Dhiman Nayak"
-          className="profileImg sm:w-64 h-96 md:h-80 rounded-full border-4 border-purple-400 shadow-lg"
-          initial="hidden"
-          animate="visible"
-          variants={imageVariants}
-        />
+          {/* Image and Icons */}
+          <div className="flex items-start justify-center md:space-x-8 mb-12 md:mb-0">
+            <motion.img
+              src="IMG20240828202308-Photoroom.png"
+              alt="Dhiman Nayak"
+              className="w-56 h-96 md:w-80 md:h-1/2 rounded-full border-4 border-purple-400 shadow-lg"
+              initial="hidden"
+              animate="visible"
+              variants={imageVariants}
+            />
 
         {/* Social Media Icons with Vertical Line */}
         <div className="md:flex flex-col items-center space-y-4 ml-6 hidden">
