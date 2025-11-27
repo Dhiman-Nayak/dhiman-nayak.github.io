@@ -1,11 +1,10 @@
-.sh{
+/* previous version */
+/* .sh{
     text-shadow: rgb(255, 0, 0) 10px 0 10px;
-    /* text-shadow: 10px 5px 2px red, 0 0 1em blue, 0 0 0.2em blue; */
-    /* text-shadow:  2px 2px rgb(200, 255, 2); */
+    
 }
-/* CSS for Twinkling Star Background */
+ CSS for Twinkling Star Background 
 .instagram-icon:hover {
-    /* color: #e1307d;  */
     background: #f09433;
     background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
@@ -19,9 +18,173 @@
     max-width: calc(100% - 20px);
 }
 .profileImg{
-    /* width: calc(100%-50vw);
-    height: calc(100%-50vh); */
     width: 55vw;
     height: calc(100vh * 0.5);
     margin-bottom: 0.9rem;
+} */
+
+
+
+/* Hero Section Styles */
+.hero-section {
+  background: linear-gradient(135deg, rgba(15, 15, 30, 0.95) 0%, rgba(30, 20, 50, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Name Gradient */
+.name-gradient {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #a855f7 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Profile Image - Maintains aspect ratio */
+.profile-image-wrapper {
+  width: 280px;
+  height: 280px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Responsive image sizes */
+@media (min-width: 640px) {
+  .profile-image-wrapper {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-image-wrapper {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+/* Social Icons - Desktop */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #9ca3af;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.5);
+  color: #fff;
+}
+
+.social-icon.linkedin:hover {
+  background: rgba(0, 119, 181, 0.2);
+  border-color: rgba(0, 119, 181, 0.5);
+  color: #0077B5;
+}
+
+/* Social Icons - Mobile */
+.social-icon-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #9ca3af;
+  transition: all 0.3s ease;
+}
+
+.social-icon-mobile:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.5);
+  color: #fff;
+}
+
+/* Instagram gradient hover */
+.instagram-icon:hover {
+  background: linear-gradient(45deg, 
+    rgba(240, 148, 51, 0.3) 0%, 
+    rgba(230, 104, 60, 0.3) 25%, 
+    rgba(220, 39, 67, 0.3) 50%, 
+    rgba(204, 35, 102, 0.3) 75%, 
+    rgba(188, 24, 136, 0.3) 100%
+  );
+  border-color: #e1307d;
+  color: #e1307d;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  cursor: pointer;
+}
+
+.scroll-indicator:hover span {
+  color: #a855f7;
+}
+
+/* Legacy styles (keeping for backwards compatibility) */
+.sh {
+  text-shadow: rgb(255, 0, 0) 10px 0 10px;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s;
+}
+
+.about-class {
+  max-width: calc(100% - 20px);
+}
+
+.profileImg {
+  width: 55vw;
+  height: calc(100vh * 0.5);
+  margin-bottom: 0.9rem;
+}
+
+/* Additional Mobile Optimizations */
+@media (max-width: 640px) {
+  .hero-section {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+  
+  .profile-image-wrapper {
+    width: 220px;
+    height: 220px;
+  }
 }

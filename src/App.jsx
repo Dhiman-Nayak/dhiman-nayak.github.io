@@ -5,34 +5,36 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
 import Line from './components/Line.jsx'
 import Navbar from './components/Navbar.jsx'
-import Home from './pages/Home/Home.jsx'
-import ProjectComponent from './pages/Project/Project.jsx';
-import Contact from './pages/Contact/Contact.jsx';
-import About from './components/About/AboutPage.jsx';
-import Skill from './components/Skill.jsx';
-import Test from './components/Test.jsx';
-import ContactMee from './components/Test1.jsx';
 import Sip from './hidden/sip.jsx';
+
+// Optimize: lazy load routes for faster first paint
+import React, { Suspense } from 'react';
+const Home = React.lazy(() => import('./pages/Home/Home.jsx'));
+const ProjectComponent = React.lazy(() => import('./pages/Project/Project.jsx'));
+const Contact = React.lazy(() => import('./pages/Contact/Contact.jsx'));
+const About = React.lazy(() => import('./components/About/AboutPage.jsx'));
+const Test = React.lazy(() => import('./components/Test.jsx'));
+const ContactMee = React.lazy(() => import('./components/Test1.jsx'));
+
 function App() {
-  
   return (
-    <div >
+    <div>
       <BrowserRouter>
         <Line/>
         <Navbar />
         <hr className='opacity-10' />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<ProjectComponent />} />
-          <Route path="/contact" element={<Contact/>} />
-          {/* <Route path="/about" element={<About/>} /> */}
-          <Route path="/gg" element={<Test/>} />
-          <Route path="/ss" element={<ContactMee/>} />
-          <Route path="/sip" element={<Sip/>} />
-        </Routes>
+        <Suspense fallback={<div className="text-center text-white py-8">Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<ProjectComponent />} />
+            <Route path="/contact" element={<Contact/>} />
+            {/* <Route path="/about" element={<About/>} /> */}
+            <Route path="/gg" element={<Test/>} />
+            <Route path="/ss" element={<ContactMee/>} />
+            <Route path="/sip" element={<Sip/>} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
-
-
     </div>
   )
 }
