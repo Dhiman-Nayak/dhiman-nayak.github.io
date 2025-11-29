@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
 import Line from './components/Line.jsx'
-import Navbar from './components/Navbar.jsx'
+import Navbar from './components/Navbar/Navbar.jsx'
 import React, { Suspense } from 'react';
+import hRoutes from './hidden/RountIndex.jsx';
 
 // Main single page component
 const Home = React.lazy(() => import('./pages/Home/Home.jsx'));
@@ -27,6 +28,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
+            {hRoutes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                element={route.element}
+              />
+            ))}
           </Routes>
         </Suspense>
       </BrowserRouter>

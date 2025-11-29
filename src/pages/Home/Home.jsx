@@ -6,7 +6,7 @@ import SkillsSection from '../../components/skills/Skill';
 import ProjectsSection from '../Project/Project';
 import CertificationsSection from '../../components/Certificate/Certificate';
 import FooterSection from '../../components/Footer/Footer';
-import useAnalyticsTracker from '../../components/Test'
+// import useAnalyticsTracker from '../../components/AnalyticsTracker'
 // Import all sections from components
 // import {
 //   HeroSection,
