@@ -1,142 +1,135 @@
-// import React from 'react';
-// import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'; // Import GitHub and URL icons
-
-// const projects = [
-//   {
-//     title: 'Twitter Clone',
-//     description:
-//       'A full-stack social media application that mimics the core functionalities of Twitter. This project is built using the MERN stack (MongoDB, Express, React, Node.js) and provides features such as user authentication, real-time posting, liking, commenting, and following other users. The application demonstrates my ability to implement RESTful APIs, manage state effectively in a React application, and handle asynchronous operations seamlessly.',
-//     link: 'https://github.com/yourusername/twitter-clone', // Replace with your actual GitHub repo link
-//   },
-//   {
-//     title: 'PicX - Decentralized Image Storage',
-//     description:
-//       'PicX is an innovative decentralized application (dApp) designed to store and manage images securely on the blockchain. Utilizing smart contracts and IPFS (InterPlanetary File System), this project ensures that images are stored in a decentralized manner, providing enhanced security and privacy compared to traditional storage methods. Built with Solidity, Web3.js, and React, PicX showcases my skills in blockchain development, smart contract integration, and building intuitive, user-friendly dApps.',
-//     link: 'https://github.com/yourusername/picx', // Replace with your actual GitHub repo link
-//   },
-// ];
-
-// const ProjectComponent = () => {
-//   console.log("2-");
-  
-//   return (
-//     <div className="container mx-auto my-12 px-4 flex flex-col items-center">
-//       {projects.map((project, index) => (
-//         <div
-//           key={index}
-//           className="bg-transparent border border-gray-200 rounded-lg shadow-lg overflow-hidden mb-8 w-11/12 md:w-3/4 lg:w-2/3 hover:bg-gray-800 hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-//         >
-//           <h2 className="text-2xl font-bold mb-2 text-gray-800 hover:text-shadow-lg">
-//             {project.title}
-//           </h2>
-//           <p className="text-gray-600 mb-4">{project.description}</p>
-//           <div className="flex space-x-4">
-//             <a
-//               href={project.link}
-//               className="text-blue-500 hover:text-blue-600  flex items-center"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//             >
-//               <FaGithub className="mr-2" /> View on GitHub
-//             </a>
-//             {/* Assuming there could be a live URL link */}
-//             {/* Uncomment below if there's a live project URL */}
-//             <a
-//               href="https://your-live-project-link.com"
-//               className="text-blue-400 hover:text-blue-600  flex items-center"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//             >
-//               <FaExternalLinkAlt className="mr-2" /> Live Demo
-//             </a>
-//           </div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default ProjectComponent;
-
-import React from 'react'
-import {
-    Card,
-    CardBody,
-    Image,
-    Stack, // Ensure the Stack component is imported
-    Heading,
-    Text,
-    Divider,
-    CardFooter,
-    ButtonGroup,
-    Button,
-} from '@chakra-ui/react'
+import React, { memo } from 'react';
+import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-const projects = [
-    {
-        title: 'Twitter Clone',
-        description:"The Twitter Clone is a full-stack web application built using the MERN stack (MongoDB, Express.js, React.js, and Node.js). It allows users to create accounts, post tweets, like/unlike tweets, follow/unfollow users, and view a feed of tweets from people they follow.",
-        imageUrl:
-            "https://dreamlandadventuretourism.com/wp-content/uploads/2023/12/img-world-ticket-from-dream.webp", 
-        githubLink: 'https://github.com/Dhiman-Nayak/Twitter-clone',
-        liveDemoLink: 'https://zwitterr.netlify.app/',
-    },
-    {
-        title: 'PicX',
-        description: "A React application for decentralized file storage, allowing users to securely store and manage their files.",
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTofZXK-_G7CFJF8T32HbnSjj-Vtl9w9BLXUg&s", 
-        githubLink: 'https://github.com/Dhiman-Nayak/PicX-Store-you-image-',
-        liveDemoLink: '',
-    },
-    
-   
+
+// Projects data
+const projectsData = [
+  {
+    title: 'Zwitter',
+    description: "Full-stack social media app of Twitter clone built with MERN stack. Features include user auth, tweets, likes, and following.",
+    imageUrl: "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=400&h=300&fit=crop",
+    githubLink: 'https://github.com/Dhiman-Nayak/Twitter-clone',
+    liveDemoLink: 'https://zwitterr.netlify.app/',
+    tags: ['React', 'Node.js', 'MongoDB']
+  },
+  {
+    title: 'PicX - Decentralized Storage',
+    description: "Blockchain-based image storage dApp using IPFS and smart contracts for secure file management.",
+    imageUrl: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
+    githubLink: 'https://github.com/Dhiman-Nayak/PicX-Store-you-image-',
+    liveDemoLink: '',
+    tags: ['React','Solidity', 'Web3', 'IPFS']
+  },
+  {
+    title: 'Portfolio Website',
+    description: "Modern portfolio website built with React, Tailwind CSS, and Framer Motion for smooth animations.",
+    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+    githubLink: 'https://github.com/Dhiman-Nayak/portfolio',
+    liveDemoLink: '',
+    tags: ['React', 'Tailwind', 'Framer Motion']
+  },
 ];
-import "./Project.css";
-function Project() {
-    return (
-        <div className=" ">
-            <div className="text-center flex flex-col md:flex-row justify-center md:space-x-4 md:overflow-x-auto overflow-x-auto px-4 py-8 custom-scrollbar">
-                {/* for multiple project in laptopn md:overflow-x-scroll for scroll bar */}
-                {projects.map((project, index) => (
-                    <Card
-                        key={index}
-                        maxW={{ base: '80%', md: 'sm' }}
-                        className="flex-shrink-0 m-2 bg-transparent border opacity-85 border-gray-200 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform "
+
+const ProjectsSection = memo(() => (
+  <section id="projects-section" className="py-16 px-4">
+    <div className="container mx-auto max-w-6xl">
+      <div>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
+          Featured <span className="text-purple-400">Projects</span>
+        </h2>
+        <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+          Some of my recent work that showcases my skills
+        </p>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projectsData.map((project) => (
+            <div
+              key={project.title}
+              className="group relative bg-gradient-to-br from-purple-900/20 to-black/40 rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500"
+            >
+              {/* Project Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                
+                {/* Overlay Icons */}
+                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-black/50 rounded-full text-white hover:bg-purple-500/50 transition-colors duration-300"
+                  >
+                    <FaGithub className="w-5 h-5" />
+                  </a>
+                  {project.liveDemoLink && (
+                    <a
+                      href={project.liveDemoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-black/50 rounded-full text-white hover:bg-purple-500/50 transition-colors duration-300"
                     >
-                        <CardBody className="bg-[#3c0d67b0] rounded-sm text-white">
-                            <Image
-                                src={project.imageUrl}
-                                alt={project.title}
-                                borderRadius="lg"
-                                className="transition-transform duration-300 transform hover:scale-105 w-60 h-60"
-                            />
-                            <Stack mt="6" spacing="3">
-                                <Heading size="md" className="text-gray-200 hover:text-shadow-lg transition-colors duration-300">
-                                    {project.title}
-                                </Heading>
-                                <Text className="text-gray-400">{project.description}</Text>
-                                {/* <Text color="blue.600" fontSize="2xl">
-                                    {project.price}
-                                </Text> */}
-                            </Stack>
-                        </CardBody>
-                        <CardFooter className="bg-[#3c0d67b0] rounded-sm">
-                            <ButtonGroup spacing="2">
-                                <Button as="a" href={project.githubLink} target="_blank" rel="noopener noreferrer" variant="ghost" colorScheme="black">
-                                    <FaGithub className="h-8 w-8 hover:scale-125" />
-                                </Button>
-                                <Button as="a" href={project.liveDemoLink} target="_blank" rel="noopener noreferrer" variant="solid" colorScheme="blue">
-                                    <FaExternalLinkAlt className="h-4 w-4 hover:scale-125" />
-                                </Button>
-                            </ButtonGroup>
-                        </CardFooter>
-                    </Card>
-                ))}
+                      <FaExternalLinkAlt className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
+              
+              {/* Project Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                  {project.title}
+                </h3>
+                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                  {project.description}
+                </p>
+                
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                {/* Links */}
+                <div className="flex gap-4">
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+                  >
+                    <FaGithub className="w-5 h-5" />
+                    <span className="text-sm">Code</span>
+                  </a>
+                  {project.liveDemoLink && (
+                    <a
+                      href={project.liveDemoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                    >
+                      <FaExternalLinkAlt className="w-4 h-4" />
+                      <span className="text-sm">Live Demo</span>
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
-        </div>  
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+));
 
-    )
-}
+ProjectsSection.displayName = 'ProjectsSection';
 
-export default Project
-
+export default ProjectsSection;

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
 
     const toggleMenu = useCallback(() => {
         setIsOpen(prev => !prev);
@@ -13,6 +15,15 @@ const Navbar = () => {
     const closeMenu = useCallback(() => {
         setIsOpen(false);
         document.body.style.overflow = 'auto';
+    }, []);
+
+    // Handle scroll effect
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     useEffect(() => {
@@ -25,43 +36,83 @@ const Navbar = () => {
         closeMenu();
     }, [location, closeMenu]);
 
+    // Smooth scroll to section
+    const scrollToSection = (sectionId) => {
+        closeMenu();
+        if (location.pathname !== '/') {
+            navigate('/');
+            setTimeout(() => {
+                const el = document.getElementById(sectionId);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        } else {
+            const el = document.getElementById(sectionId);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const navLinks = [
-        { to: "/", text: "Home", className: "hover:text-yellow-200" },
-        { to: "/projects", text: "Projects", className: "hover:text-yellow-200" },
-        // { to: "/about", text: "About", className: "hover:text-yellow-200" },
-        { to: "/contact", text: "Contact", className: "bg-[#ba86ea81] hover:text-yellow-200" }
+        { type: 'scroll', sectionId: 'about-section', text: "About" },
+        { type: 'scroll', sectionId: 'skills-section', text: "Skills" },
+        { type: 'scroll', sectionId: 'certifications-section', text: "Certifications" },
+        { type: 'scroll', sectionId: 'projects-section', text: "Projects" },
+        { type: 'link', to: "/contact", text: "Contact", highlight: true }
     ];
 
     return (
-        <nav className="relative z-10 flex items-center justify-between p-5 text-white transition-shadow duration-300 ease-in-out w-full">
-            <div className="text-2xl font-bold">
+        <nav className={`sticky top-0 z-50 flex items-center justify-between p-4 md:p-5 text-white transition-all duration-300 ${
+            scrolled 
+                ? 'bg-black/90 backdrop-blur-lg shadow-lg shadow-purple-500/5 border-b border-white/5' 
+                : 'bg-black/50 backdrop-blur-sm'
+        }`}>
+            <Link to="/" className="text-xl md:text-2xl font-bold hover:opacity-80 transition-opacity">
                 Dhiman<span className="text-[#8A2BE2]">N.</span>
-            </div>
+            </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex md:items-center">
-                {navLinks.map((link) => (
-                    <Link key={link.to} to={link.to}>
-                        <p className={`px-4 py-2 text-white font-semibold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 ${link.className}`}>
+            <div className="hidden md:flex md:items-center gap-1 lg:gap-2">
+                {navLinks.map((link, index) => (
+                    link.type === 'scroll' ? (
+                        <button
+                            key={index}
+                            onClick={() => scrollToSection(link.sectionId)}
+                            className="px-3 lg:px-4 py-2 text-sm lg:text-base text-white font-medium rounded-md transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:text-purple-400"
+                        >
                             {link.text}
-                        </p>
-                    </Link>
+                        </button>
+                    ) : (
+                        <Link key={link.to} to={link.to}>
+                            <p className={`px-3 lg:px-4 py-2 text-sm lg:text-base text-white font-medium rounded-md transition duration-300 ease-in-out transform hover:-translate-y-0.5 ${link.highlight ? 'bg-purple-600/80 hover:bg-purple-500' : 'hover:text-purple-400'}`}>
+                                {link.text}
+                            </p>
+                        </Link>
+                    )
                 ))}
             </div>
 
             {/* Mobile Menu */}
             <div
-                className={`md:hidden fixed inset-0 z-50 bg-black bg-opacity-90 transition-opacity duration-300 ${
+                className={`md:hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-md transition-all duration-300 ${
                     isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`}
             >
-                <div className="flex flex-col items-center justify-center h-full gap-8">
-                    {navLinks.map((link) => (
-                        <Link key={link.to} to={link.to} onClick={closeMenu}>
-                            <p className={`px-6 py-2 text-white font-semibold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 ${link.className}`}>
+                <div className="flex flex-col items-center justify-center h-full gap-6">
+                    {navLinks.map((link, index) => (
+                        link.type === 'scroll' ? (
+                            <button
+                                key={index}
+                                onClick={() => scrollToSection(link.sectionId)}
+                                className="px-6 py-2 text-white text-xl font-medium rounded-md transition duration-300 ease-in-out transform hover:text-purple-400"
+                            >
                                 {link.text}
-                            </p>
-                        </Link>
+                            </button>
+                        ) : (
+                            <Link key={link.to} to={link.to} onClick={closeMenu}>
+                                <p className={`px-6 py-2 text-white text-xl font-medium rounded-md transition duration-300 ease-in-out transform ${link.highlight ? 'bg-purple-600/80' : 'hover:text-purple-400'}`}>
+                                    {link.text}
+                                </p>
+                            </Link>
+                        )
                     ))}
                 </div>
             </div>

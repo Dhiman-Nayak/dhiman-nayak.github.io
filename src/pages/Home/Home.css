@@ -1,30 +1,3 @@
-/* previous version */
-/* .sh{
-    text-shadow: rgb(255, 0, 0) 10px 0 10px;
-    
-}
- CSS for Twinkling Star Background 
-.instagram-icon:hover {
-    background: #f09433;
-    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
-.social-icons a:hover {
-    transform: scale(1.2);
-    transition: transform 0.2s;
-}
-.about-class{
-    max-width: calc(100% - 20px);
-}
-.profileImg{
-    width: 55vw;
-    height: calc(100vh * 0.5);
-    margin-bottom: 0.9rem;
-} */
-
-
-
 /* Hero Section Styles */
 .hero-section {
   background: linear-gradient(135deg, rgba(15, 15, 30, 0.95) 0%, rgba(30, 20, 50, 0.95) 100%);
@@ -45,7 +18,7 @@
   pointer-events: none;
 }
 
-/* Name Gradient */
+/* Name Gradient Animation */
 .name-gradient {
   background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #a855f7 100%);
   background-size: 200% auto;
@@ -60,7 +33,7 @@
   100% { background-position: 200% center; }
 }
 
-/* Profile Image - Maintains aspect ratio */
+/* Profile Image Styles */
 .profile-image-wrapper {
   width: 280px;
   height: 280px;
@@ -88,7 +61,7 @@
   }
 }
 
-/* Social Icons - Desktop */
+/* Social Icons */
 .social-icon {
   display: flex;
   align-items: center;
@@ -114,26 +87,6 @@
   color: #0077B5;
 }
 
-/* Social Icons - Mobile */
-.social-icon-mobile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  color: #9ca3af;
-  transition: all 0.3s ease;
-}
-
-.social-icon-mobile:hover {
-  background: rgba(139, 92, 246, 0.2);
-  border-color: rgba(139, 92, 246, 0.5);
-  color: #fff;
-}
-
 /* Instagram gradient hover */
 .instagram-icon:hover {
   background: linear-gradient(45deg, 
@@ -156,7 +109,7 @@
   color: #a855f7;
 }
 
-/* Legacy styles (keeping for backwards compatibility) */
+/* Legacy styles */
 .sh {
   text-shadow: rgb(255, 0, 0) 10px 0 10px;
 }
@@ -170,13 +123,7 @@
   max-width: calc(100% - 20px);
 }
 
-.profileImg {
-  width: 55vw;
-  height: calc(100vh * 0.5);
-  margin-bottom: 0.9rem;
-}
-
-/* Additional Mobile Optimizations */
+/* Mobile Optimizations */
 @media (max-width: 640px) {
   .hero-section {
     padding-top: 2rem;
@@ -187,4 +134,9 @@
     width: 220px;
     height: 220px;
   }
+}
+
+/* Section spacing utilities */
+section {
+  scroll-margin-top: 80px;
 }
