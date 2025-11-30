@@ -24,7 +24,7 @@ const projectsData = [
     title: 'Portfolio Website',
     description: "Modern portfolio website built with React, Tailwind CSS, and Framer Motion for smooth animations.",
     imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-    githubLink: 'https://github.com/Dhiman-Nayak/portfolio',
+    githubLink: 'https://github.com/Dhiman-Nayak/Portfolio-Website',
     liveDemoLink: '',
     tags: ['React', 'Tailwind', 'Framer Motion']
   },

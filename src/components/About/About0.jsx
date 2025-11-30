@@ -10,7 +10,7 @@ const educationData = [
   },
   {
     institution: "Arambagh High School",
-    years: "2013-2022",
+    years: "2020-2022",
     type: "School",
     details: "Completed secondary education"
   }

@@ -93,7 +93,7 @@ const Navbar = () => {
 
             {/* Hamburger Menu */}
             <button
-                className="md:hidden z-50 w-10 h-10 relative focus:outline-none"
+                className={`md:hidden w-10 h-10 relative focus:outline-none ${isOpen ? 'z-[70] fixed top-4 right-4' : 'z-50'}`}
                 onClick={toggleMenu}
                 aria-label="Toggle menu"
                 aria-expanded={isOpen}

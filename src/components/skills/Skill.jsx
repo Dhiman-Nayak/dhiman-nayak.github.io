@@ -1,5 +1,5 @@
-import  { memo } from 'react';
-import { motion } from 'framer-motion';
+import { memo } from 'react';
+import PropTypes from 'prop-types';
 
 // Import skill icons
 import js from "../../assets/javascript-1.svg";
@@ -14,20 +14,57 @@ import mysql from "../../assets/MySQL-Logo.wine.svg";
 import git from "../../assets/git-icon.svg";
 import postman from "../../assets/postman.svg";
 
-// Skills data
-const skillsData = [
-  { name: 'JavaScript', icon: js },
-  { name: 'Python', icon: python },
-  { name: 'HTML', icon: html },
-  { name: 'CSS', icon: css },
-  { name: 'React', icon: reactLogo },
-  { name: 'Node.js', icon: nodejs },
-  { name: 'Tailwind', icon: tailwind },
-  { name: 'MongoDB', icon: mongodb },
-  { name: 'MySQL', icon: mysql },
-  { name: 'Git', icon: git },
-  { name: 'Postman', icon: postman },
+// Skills grouped by category with proficiency for richer UI cues
+const skillCategories = [
+  {
+    title: 'Backend & Data',
+    blurb: 'APIs, data flows, and cloud-friendly persistence.',
+    skills: [
+      { name: 'Python', icon: python },
+      { name: 'Node.js', icon: nodejs },
+      { name: 'MongoDB', icon: mongodb },
+      { name: 'MySQL', icon: mysql },
+    ],
+  },
+  {
+    title: 'Frontend Craft',
+    blurb: 'Interfaces that feel fast, accessible, and on brand.',
+    skills: [
+      { name: 'JavaScript', icon: js },
+      { name: 'React', icon: reactLogo },
+      { name: 'HTML', icon: html },
+      { name: 'CSS', icon: css },
+      { name: 'Tailwind', icon: tailwind },
+    ],
+  },
+  {
+    title: 'Ops & Collaboration',
+    blurb: 'Shipping reliably with the right tooling.',
+    skills: [
+      { name: 'Git', icon: git },
+      { name: 'Postman', icon: postman },
+    ],
+  },
 ];
+
+const SkillBadge = ({ icon, name }) => (
+  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all duration-300">
+    <div className="flex items-center gap-4">
+      <span className="w-12 h-12 rounded-xl bg-black/30 flex items-center justify-center">
+        <img src={icon} alt={name} className="w-8 h-8" loading="lazy" />
+      </span>
+      <div>
+        <p className="text-base font-semibold text-white">{name}</p>
+        {/* <p className="text-xs uppercase tracking-[0.3em] text-gray-400">core tool</p> */}
+      </div>
+    </div>
+  </div>
+);
+
+SkillBadge.propTypes = {
+  icon: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 const SkillsSection = memo(() => (
   <section id="skills-section" className="py-16 px-4">
@@ -40,23 +77,27 @@ const SkillsSection = memo(() => (
           Technologies I work with to bring ideas to life
         </p>
         
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-11 gap-4">
-          {skillsData.map((skill) => (
-            <motion.div
-              key={skill.name}
-              className="flex flex-col items-center justify-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-purple-500/10 hover:border-purple-500/30 transition-all duration-300 group"
-              whileHover={{ scale: 1.05, y: -5 }}
+        <div className="space-y-8">
+          {skillCategories.map((category) => (
+            <div
+              key={category.title}
+              className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/0 to-purple-500/10 p-6 md:p-8 backdrop-blur"
             >
-              <img
-                src={skill.icon}
-                alt={skill.name}
-                className="w-10 h-10 mb-2 opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                loading="lazy"
-              />
-              <span className="text-xs text-gray-400 group-hover:text-white transition-colors duration-300 text-center">
-                {skill.name}
-              </span>
-            </motion.div>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                <div>
+                  <p className="text-sm uppercase tracking-[0.3em] text-purple-300 mb-2">{category.title}</p>
+                  <p className="text-gray-300 text-base md:text-lg max-w-2xl">{category.blurb}</p>
+                </div>
+                {/* <span className="text-xs text-gray-400 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full w-fit">
+                  {category.skills.length} focused tools
+                </span> */}
+              </div>
+              <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+                {category.skills.map((skill) => (
+                  <SkillBadge key={skill.name} {...skill} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

@@ -37,11 +37,11 @@ const FooterSection = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Logo/Name */}
-            <div className="text-center md:text-left">
+            {/* <div className="text-center md:text-left">
               <Link to="/" className="text-xl font-bold text-white hover:text-purple-400 transition-colors">
                 Dhiman<span className="text-purple-400">N.</span>
               </Link>
-            </div>
+            </div> */}
 
             {/* Social Links */}
             <div className="flex items-center gap-4">

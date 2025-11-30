@@ -4,7 +4,7 @@
     color: #fff;
     padding: 50px 20px;
     /* max-width: 600px; */
-    margin: 1.5em auto;
+    margin: 0.5em auto;
     text-align: center;
     border-width: 2px;
     border-color: #9d46ee;
@@ -101,52 +101,30 @@ textarea {
     }
 }
 
-/* General Icon Styling */
+/* Social icon row aligned with footer treatment */
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
 }
 
-.icon {
-    font-size: 40px;
-    color: #ffffff;
-    /* Default icon color (white) */
-    transition: color 0.3s ease;
-    cursor: pointer;
+.contact-social-link {
+    width: 52px;
+    height: 52px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* Hover Effects with Original Colors */
-.github-icon:hover {
-    color: black;
-    background: white;
-    /* GitHub original color */
+.contact-social-link:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: rgba(168, 85, 247, 0.4);
 }
-
-.linkedin-icon:hover {
-    background: white;
-    /* LinkedIn original color */
-    color: #0077B5;
-}
-
-.instagram-icon:hover {
-    /* color: #e1307d;  */
-    background: #f09433;
-    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
-
-.twitter-icon:hover {
-    background: white;
-    color: black;
-    /* Twitter original color */
-}
-.phone-icon:hover {
-    color: #36ea66b2; /* Green color for phone */
-  }
-  
-  .email-icon:hover {
-    color: #EA4335; /* Red color for email */
-  }

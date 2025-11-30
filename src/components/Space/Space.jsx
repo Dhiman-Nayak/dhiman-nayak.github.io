@@ -1,4 +1,3 @@
-import React from 'react'
 import "./Space.css"
 function Line() {
   return (

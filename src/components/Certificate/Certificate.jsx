@@ -105,7 +105,7 @@ const CertificationsSection = memo(() => (
         </div>
         
         {/* View All Button */}
-        <div className="flex justify-center mt-10">
+        {/* <div className="flex justify-center mt-10">
           <a
             href="https://linkedin.com/in/your-profile/details/certifications"
             target="_blank"
@@ -116,7 +116,7 @@ const CertificationsSection = memo(() => (
             <span>View All on LinkedIn</span>
             <FaExternalLinkAlt className="w-2.5 h-2.5" />
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   </section>

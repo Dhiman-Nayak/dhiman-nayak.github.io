@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa';
-import { FaXTwitter } from "react-icons/fa6";
-import { IoCall } from "react-icons/io5";
+import { useState } from 'react';
 import  Alert  from '../../components/alert/Alert';
-import { githubUrl,xUrl,instagramUrl,linkedinUrl } from '../../config/SocialMediaLink';
+import { socialLinks } from '../../config/SocialMediaLink';
 import './Contact.css';
 
 
@@ -58,7 +55,7 @@ const Contact = () => {
   return (
     <div className=''>
       <div>
-        <div className="contact-container w-80 md:w-5/12 mt-4 -z-10">
+        <div className="contact-container w-80 md:w-5/12 mt-4 my-1 -z-10">
           <h2>Contact Me</h2>
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">
@@ -100,20 +97,19 @@ const Contact = () => {
           </form>
 
         </div>
-        <div className="social-icons ">
-          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-            <FaGithub className="icon github-icon" />
-          </a>
-          <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-            <FaLinkedin className="icon linkedin-icon" />
-          </a>
-          <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-            <FaInstagram className="icon instagram-icon" />
-          </a>
-          <a href={xUrl} target="_blank" rel="noopener noreferrer">
-            <FaXTwitter className="icon twitter-icon" />
-          </a>
-
+        <div className="social-icons">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`contact-social-link ${link.hoverClass}`}
+              aria-label={link.label}
+            >
+              <link.icon className="w-6 h-6" />
+            </a>
+          ))}
         </div>
       </div>
       {showAlert && (

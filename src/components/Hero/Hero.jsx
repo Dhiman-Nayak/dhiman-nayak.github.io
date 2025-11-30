@@ -1,8 +1,6 @@
-import React, { memo, useState, useEffect } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
 import { socialLinks } from '../../config/SocialMediaLink';
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -112,7 +110,7 @@ const HeroSection = ({ scrollToSection }) => {
                 I'm a <span className="text-purple-400 font-semibold">Full Stack Developer</span>
               </p>
               <p className="text-sm sm:text-base text-gray-400 mt-2 max-w-md mx-auto lg:mx-0">
-                Passionate about building beautiful, functional, and user-friendly web applications.
+                Passionate about building functional, and user-friendly web applications.
               </p>
             </div>
 
@@ -168,11 +166,11 @@ const HeroSection = ({ scrollToSection }) => {
               <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-purple-500/20 via-pink-400/15 to-purple-500/20 blur-xl"></div>
               
               {/* Image wrapper */}
-              <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 overflow-hidden rounded-full border-4 border-purple-400/30 shadow-2xl shadow-purple-900/30">
                 <img
                   src="/IMG20240828202308-Photoroom.png"
                   alt="Portrait of Dhiman Nayak"
-                  className="w-full h-full rounded-full object-cover object-center border-4 border-purple-400/30 shadow-2xl shadow-purple-900/30"
+                  className="w-full h-auto scale-[0.7] origin-top translate-y-[4%]"
                   loading="eager"
                 />
                 {/* Decorative dots */}
