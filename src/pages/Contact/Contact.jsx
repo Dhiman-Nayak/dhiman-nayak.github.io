@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";
 import  Alert  from '../../components/alert/Alert';
-
+import { githubUrl,xUrl,instagramUrl,linkedinUrl } from '../../config/SocialMediaLink';
 import './Contact.css';
 
 
@@ -101,16 +101,16 @@ const Contact = () => {
 
         </div>
         <div className="social-icons ">
-          <a href="https://github.com/your-profile" target="_blank" rel="noopener noreferrer">
+          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
             <FaGithub className="icon github-icon" />
           </a>
-          <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+          <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
             <FaLinkedin className="icon linkedin-icon" />
           </a>
-          <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer">
+          <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
             <FaInstagram className="icon instagram-icon" />
           </a>
-          <a href="https://twitter.com/your-profile" target="_blank" rel="noopener noreferrer">
+          <a href={xUrl} target="_blank" rel="noopener noreferrer">
             <FaXTwitter className="icon twitter-icon" />
           </a>
 

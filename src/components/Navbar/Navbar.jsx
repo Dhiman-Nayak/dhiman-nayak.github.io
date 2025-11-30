@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
@@ -60,6 +60,7 @@ const Navbar = () => {
     ];
 
     return (
+        <>
         <nav className={`sticky top-0 z-50 flex items-center justify-between p-4 md:p-5 text-white transition-all duration-300 ${
             scrolled 
                 ? 'bg-black/90 backdrop-blur-lg shadow-lg shadow-purple-500/5 border-b border-white/5' 
@@ -88,33 +89,6 @@ const Navbar = () => {
                         </Link>
                     )
                 ))}
-            </div>
-
-            {/* Mobile Menu */}
-            <div
-                className={`md:hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-md transition-all duration-300 ${
-                    isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-                }`}
-            >
-                <div className="flex flex-col items-center justify-center h-full gap-6">
-                    {navLinks.map((link, index) => (
-                        link.type === 'scroll' ? (
-                            <button
-                                key={index}
-                                onClick={() => scrollToSection(link.sectionId)}
-                                className="px-6 py-2 text-white text-xl font-medium rounded-md transition duration-300 ease-in-out transform hover:text-purple-400"
-                            >
-                                {link.text}
-                            </button>
-                        ) : (
-                            <Link key={link.to} to={link.to} onClick={closeMenu}>
-                                <p className={`px-6 py-2 text-white text-xl font-medium rounded-md transition duration-300 ease-in-out transform ${link.highlight ? 'bg-purple-600/80' : 'hover:text-purple-400'}`}>
-                                    {link.text}
-                                </p>
-                            </Link>
-                        )
-                    ))}
-                </div>
             </div>
 
             {/* Hamburger Menu */}
@@ -146,6 +120,37 @@ const Navbar = () => {
                 </div>
             </button>
         </nav>
+
+        {/* Mobile Menu Overlay */}
+        {isOpen && (
+            <div
+                className="md:hidden fixed inset-0 z-[60] bg-black/80 backdrop-blur-2xl transition-opacity duration-300 flex items-center justify-center"
+                onClick={closeMenu}
+                role="dialog"
+                aria-modal="true"
+            >
+                <div className="flex flex-col items-center justify-center gap-6" onClick={(e) => e.stopPropagation()}>
+                    {navLinks.map((link, index) => (
+                        link.type === 'scroll' ? (
+                            <button
+                                key={index}
+                                onClick={() => scrollToSection(link.sectionId)}
+                                className="px-6 py-2 text-white text-xl font-semibold rounded-md transition duration-300 ease-in-out hover:text-purple-300"
+                            >
+                                {link.text}
+                            </button>
+                        ) : (
+                            <Link key={link.to} to={link.to} onClick={closeMenu}>
+                                <p className={`px-6 py-2 text-white text-xl font-semibold rounded-md transition duration-300 ease-in-out ${link.highlight ? 'bg-purple-600/80 shadow-lg shadow-purple-500/30' : 'hover:text-purple-300'}`}>
+                                    {link.text}
+                                </p>
+                            </Link>
+                        )
+                    ))}
+                </div>
+            </div>
+        )}
+        </>
     );
 };
 

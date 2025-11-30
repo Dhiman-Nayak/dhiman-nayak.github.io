@@ -3,13 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaInstagram, FaHeart } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { socialLinks } from '../../config/SocialMediaLink';
 
-const socialLinks = [
-  { href: "https://github.com/Dhiman-Nayak", icon: FaGithub, label: "GitHub" },
-  { href: "https://twitter.com/your-profile", icon: FaSquareXTwitter, label: "Twitter" },
-  { href: "https://linkedin.com/in/your-profile", icon: FaLinkedin, label: "LinkedIn" },
-  { href: "https://instagram.com/your-profile", icon: FaInstagram, label: "Instagram" },
-];
 
 const FooterSection = () => {
   return (
@@ -56,7 +51,7 @@ const FooterSection = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                  className={`${link.hoverClass} p-2 text-gray-400  transition-colors duration-300`}
                   aria-label={link.label}
                 >
                   <link.icon className="w-5 h-5" />

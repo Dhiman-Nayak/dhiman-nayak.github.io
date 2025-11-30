@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
-
+import { socialLinks } from '../../config/SocialMediaLink';
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { 
@@ -42,13 +42,7 @@ const iconVariants = {
   }
 };
 
-// Social links
-const socialLinks = [
-  { href: "https://github.com/Dhiman-Nayak", icon: FaGithub, label: "GitHub", hoverClass: "hover:text-white hover:bg-purple-500/20" },
-  { href: "https://twitter.com/your-profile", icon: FaSquareXTwitter, label: "Twitter", hoverClass: "hover:text-white hover:bg-purple-500/20" },
-  { href: "https://linkedin.com/in/your-profile", icon: FaLinkedin, label: "LinkedIn", hoverClass: "hover:text-[#0077B5] hover:bg-blue-500/10" },
-  { href: "https://instagram.com/your-profile", icon: FaInstagram, label: "Instagram", hoverClass: "hover:text-pink-500 hover:bg-pink-500/10" },
-];
+
 
 // Social Icon Component
 const SocialIcon = memo(({ href, icon: Icon, label, hoverClass, size = "w-10 h-10", iconSize = "w-5 h-5" }) => (
@@ -82,7 +76,7 @@ const HeroSection = ({ scrollToSection }) => {
   }, []);
 
   return (
-    <section className="min-h-[90vh] flex flex-col justify-center relative">
+    <section className="min-h-[90vh] flex flex-col justify-center relative z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8 lg:gap-12">
 
@@ -126,21 +120,21 @@ const HeroSection = ({ scrollToSection }) => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link to="/contact">
                 <motion.button
-                  className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg shadow-purple-500/30"
+                  className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg shadow-purple-500/30 border-purple-500/50"
                   whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(147, 51, 234, 0.35)" }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Contact Me
                 </motion.button>
               </Link>
-              <motion.button
+              {/* <motion.button
                 onClick={() => scrollToSection('projects-section')}
                 className="w-full sm:w-auto border-2 border-purple-500/50 hover:border-purple-400 hover:bg-purple-500/10 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 backdrop-blur-sm"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 View Projects
-              </motion.button>
+              </motion.button> */}
             </div>
 
             {/* Mobile Social Icons */}

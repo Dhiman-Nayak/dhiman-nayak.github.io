@@ -6,7 +6,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -3;
+    z-index: -10;  /* Make sure this is lower than navbar */
 }
 
 .bg:before {
