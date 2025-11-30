@@ -1,7 +1,7 @@
 // import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
-import Line from './components/Space/Space.jsx'
+import Line from './hidden/Space/Space.jsx'
 import Navbar from './components/Navbar/Navbar.jsx'
 import React, { Suspense } from 'react';
 import hRoutes from './hidden/RountIndex.jsx';
