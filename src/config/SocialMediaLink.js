@@ -16,7 +16,7 @@ export const socialLinks = [
     hoverClass: "hover:text-white hover:bg-purple-500/20"
   },
   { 
-    href: "https://x.com/DhimanNayak03", 
+    href: "https://x.com/dman_exe", 
     icon: FaSquareXTwitter, 
     label: "Twitter",
     hoverClass: "hover:text-white hover:bg-purple-500/20"
@@ -28,7 +28,7 @@ export const socialLinks = [
     hoverClass: "hover:text-[#0077B5] hover:bg-blue-500/10"
   },
   { 
-    href: "https://www.instagram.com/nayak.dhiman", 
+    href: "https://www.instagram.com/dhimmann__", 
     icon: FaInstagram, 
     label: "Instagram",
     hoverClass: "hover:text-pink-500 hover:bg-pink-500/10"
