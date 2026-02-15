@@ -61,7 +61,7 @@ const Navbar = () => {
 
     return (
         <>
-        <nav className={`sticky top-0 z-50 flex items-center justify-between p-4 md:p-5 text-white transition-all duration-300 ${
+        <nav className={`sticky top-0 z-[80] flex items-center justify-between p-4 md:p-5 text-white transition-all duration-300 ${
             scrolled 
                 ? 'bg-black/90 backdrop-blur-lg shadow-lg shadow-purple-500/5 border-b border-white/5' 
                 : 'bg-black/50 backdrop-blur-sm'

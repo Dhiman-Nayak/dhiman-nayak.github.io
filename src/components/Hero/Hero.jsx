@@ -170,7 +170,7 @@ const HeroSection = ({ scrollToSection }) => {
                 <img
                   src="/IMG20240828202308-Photoroom.png"
                   alt="Portrait of Dhiman Nayak"
-                  className="w-full h-auto scale-[0.7] origin-top translate-y-[4%]"
+                  className="w-full h-auto scale-[0.65] origin-top translate-y-[4%] translate-x-[6%]"
                   loading="eager"
                 />
                 {/* Decorative dots */}
