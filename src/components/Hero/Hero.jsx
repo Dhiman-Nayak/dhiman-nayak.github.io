@@ -36,17 +36,15 @@ const iconVariants = {
 
 // Social Icon Component
 const SocialIcon = memo(({ href, icon: Icon, label, hoverClass, size = "w-10 h-10", iconSize = "w-5 h-5" }) => (
-  <motion.a
+  <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
     className={`flex items-center justify-center ${size} rounded-full bg-purple-500/10 border border-purple-500/30 text-gray-400 ${hoverClass} transition-all duration-300 backdrop-blur-sm`}
-    variants={iconVariants}
-    whileHover={{ scale: 1.2, y: -3 }}
     aria-label={label}
   >
     <Icon className={iconSize} />
-  </motion.a>
+  </a>
 ));
 
 SocialIcon.displayName = 'SocialIcon';
@@ -75,9 +73,9 @@ const HeroSection = ({ scrollToSection }) => {
   }, []);
 
   return (
-    <section className="min-h-[90vh] flex flex-col justify-center relative z-10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_minmax(0,680px)_1fr] items-center gap-8 lg:gap-16">
+    <section className="min-h-[100vh] flex flex-col justify-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 flex flex-col min-h-[100vh] justify-center">
+        <div className="grid lg:grid-cols-[1fr_minmax(0,680px)_1fr] items-center gap-8 lg:gap-16 flex-grow lg:flex-grow-0">
           <div className="hidden lg:block" aria-hidden="true"></div>
 
           {/* Text Section */}
@@ -164,7 +162,7 @@ const HeroSection = ({ scrollToSection }) => {
 
         {/* Scroll Indicator - Hidden on scroll */}
         <div 
-          className={`flex justify-center mt-12 lg:mt-16 transition-all duration-500 ${
+          className={`flex justify-center mt-auto mb-8 lg:mt-16 lg:mb-0 transition-all duration-500 ${
             showExplore 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-4 pointer-events-none'
