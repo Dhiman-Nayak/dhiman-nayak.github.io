@@ -1,21 +1,13 @@
 import { memo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 import { socialLinks } from '../../config/SocialMediaLink';
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
-  }
-};
-
-const imageVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
     transition: { duration: 0.8, ease: "easeOut" } 
   }
 };
@@ -59,6 +51,15 @@ const SocialIcon = memo(({ href, icon: Icon, label, hoverClass, size = "w-10 h-1
 
 SocialIcon.displayName = 'SocialIcon';
 
+SocialIcon.propTypes = {
+  href: PropTypes.string.isRequired,
+  icon: PropTypes.elementType.isRequired,
+  label: PropTypes.string.isRequired,
+  hoverClass: PropTypes.string.isRequired,
+  size: PropTypes.string,
+  iconSize: PropTypes.string
+};
+
 const HeroSection = ({ scrollToSection }) => {
   const [showExplore, setShowExplore] = useState(true);
 
@@ -76,18 +77,18 @@ const HeroSection = ({ scrollToSection }) => {
   return (
     <section className="min-h-[90vh] flex flex-col justify-center relative z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-[1fr_minmax(0,680px)_1fr] items-center gap-8 lg:gap-16">
+          <div className="hidden lg:block" aria-hidden="true"></div>
 
           {/* Text Section */}
           <motion.div
-            className="w-full lg:w-1/2 text-center lg:text-left"
+            className="w-full text-center"
             initial="hidden"
             animate="visible"
             variants={textVariants}
           >
-            {/* Greeting Badge */}
             <motion.span 
-              className="inline-block px-4 py-2 mb-4 text-sm font-medium text-purple-300 bg-purple-500/10 rounded-full border border-purple-500/30 backdrop-blur-sm"
+              className="inline-block px-4 py-2 mb-6 text-xs font-semibold tracking-[0.35em] uppercase text-purple-300/80 bg-white/5 rounded-full border border-white/10"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -95,49 +96,38 @@ const HeroSection = ({ scrollToSection }) => {
               👋 Welcome to my portfolio
             </motion.span>
 
-            <h1 className="text-white mb-4 font-serif">
-              <span className="block text-xl sm:text-2xl md:text-3xl mb-2 text-gray-300">
-                Hi, I'm
+            <h1 className="text-white mb-5 drop-shadow-[0_12px_35px_rgba(255,255,255,0.18)]">
+              <span className="block text-base sm:text-lg md:text-xl mb-3 text-gray-300">
+                Hi, I&apos;m
               </span>
-              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
                 Dhiman Nayak
               </span>
             </h1>
 
             {/* Role */}
-            <div className="mb-6 md:mb-8">
+            <div className="mb-8">
               <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed">
-                I'm a <span className="text-purple-400 font-semibold">Full Stack Developer</span>
-              </p>
-              <p className="text-sm sm:text-base text-gray-400 mt-2 max-w-md mx-auto lg:mx-0">
-                Passionate about building functional, and user-friendly web applications.
+                I&apos;m a <span className="text-purple-300 font-semibold">Full Stack Developer</span>
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
                 <motion.button
-                  className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg shadow-purple-500/30 border-purple-500/50"
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(147, 51, 234, 0.35)" }}
+                  className="w-full sm:w-auto bg-white text-black font-semibold py-3 px-8 rounded-full transition-all duration-300 shadow-lg shadow-black/40"
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0, 0, 0, 0.35)" }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Contact Me
                 </motion.button>
               </Link>
-              {/* <motion.button
-                onClick={() => scrollToSection('projects-section')}
-                className="w-full sm:w-auto border-2 border-purple-500/50 hover:border-purple-400 hover:bg-purple-500/10 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 backdrop-blur-sm"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View Projects
-              </motion.button> */}
-            </div>
+            </div> */}
 
             {/* Mobile Social Icons */}
             <motion.div 
-              className="flex lg:hidden justify-center gap-5 mt-8"
+              className="flex lg:hidden justify-center gap-4 mt-10"
               variants={iconContainerVariants}
               initial="hidden"
               animate="visible"
@@ -146,56 +136,29 @@ const HeroSection = ({ scrollToSection }) => {
                 <SocialIcon 
                   key={link.label}
                   {...link}
-                  size="w-12 h-12"
-                  iconSize="w-6 h-6"
+                  size="w-11 h-11"
+                  iconSize="w-5 h-5"
                 />
               ))}
             </motion.div>
           </motion.div>
 
-          {/* Image and Desktop Icons */}
-          <div className="flex items-center justify-center gap-6 lg:gap-8">
-            {/* Profile Image Container */}
+          {/* Desktop Social Media Icons */}
+          <div className="hidden lg:flex flex-col items-center gap-4 justify-self-end">
+            <div className="w-px h-16 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
+            
             <motion.div
-              className="relative"
+              className="flex flex-col gap-4"
+              variants={iconContainerVariants}
               initial="hidden"
               animate="visible"
-              variants={imageVariants}
             >
-              {/* Glow effect */}
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-purple-500/20 via-pink-400/15 to-purple-500/20 blur-xl"></div>
-              
-              {/* Image wrapper */}
-              <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 overflow-hidden rounded-full border-4 border-purple-400/30 shadow-2xl shadow-purple-900/30">
-                <img
-                  src="/IMG20240828202308-Photoroom.png"
-                  alt="Portrait of Dhiman Nayak"
-                  className="w-full h-auto scale-[0.65] origin-top translate-y-[4%] translate-x-[6%]"
-                  loading="eager"
-                />
-                {/* Decorative dots */}
-                <div className="absolute -top-2 -right-2 w-4 h-4 sm:w-5 sm:h-5 bg-purple-400 rounded-full opacity-60 animate-bounce"></div>
-                <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-pink-400 rounded-full opacity-50 animate-pulse"></div>
-              </div>
+              {socialLinks.map(link => (
+                <SocialIcon key={link.label} {...link} />
+              ))}
             </motion.div>
 
-            {/* Desktop Social Media Icons */}
-            <div className="hidden lg:flex flex-col items-center gap-4">
-              <div className="w-px h-16 bg-gradient-to-b from-transparent via-purple-400/60 to-transparent"></div>
-              
-              <motion.div
-                className="flex flex-col gap-4"
-                variants={iconContainerVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                {socialLinks.map(link => (
-                  <SocialIcon key={link.label} {...link} />
-                ))}
-              </motion.div>
-
-              <div className="w-px h-16 bg-gradient-to-b from-transparent via-purple-400/60 to-transparent"></div>
-            </div>
+            <div className="w-px h-16 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
           </div>
         </div>
 

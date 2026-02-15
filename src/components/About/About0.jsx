@@ -1,87 +1,69 @@
 import { memo } from 'react';
 
-// Education data
-const educationData = [
-  {
-    institution: "Heritage Institute of Technology",
-    years: "2022-2026",
-    type: "B.Tech",
-    details: "Computer Science - IoT, Cybersecurity & Blockchain"
-  },
-  {
-    institution: "Arambagh High School",
-    years: "2020-2022",
-    type: "School",
-    details: "Completed secondary education"
-  }
-];
-
 const AboutSection = memo(() => (
-  <section id="about-section" className="py-16 px-4">
+  <section id="about-section" className="py-10 sm:py-14 lg:py-16 px-4">
     <div className="container mx-auto max-w-6xl">
       <div>
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
-          About <span className="text-purple-400">Me</span>
-        </h2>
-        <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-          A passionate developer on a journey of continuous learning
-        </p>
+        <div className="flex items-center gap-4 mb-10">
+          <h2 className="text-3xl md:text-4xl font-semibold text-white">About</h2>
+          <div className="flex-1 h-px bg-white/10"></div>
+        </div>
         
-        {/* About Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-purple-900/30 to-black/40 p-6 rounded-2xl border border-purple-500/20">
-              <p className="text-gray-300 leading-relaxed font-mono text-sm md:text-base">
-                <span className="text-purple-400">const</span> <span className="text-blue-400">developer</span> = {'{'}
-              </p>
-              <p className="text-gray-300 leading-relaxed font-mono ml-4 text-sm md:text-base">
-                <span className="text-green-400">name</span>: <span className="text-yellow-300">"Dhiman Nayak"</span>,
-              </p>
-              {/* <p className="text-gray-300 leading-relaxed font-mono ml-4 text-sm md:text-base">
-                <span className="text-green-400">role</span>: <span className="text-yellow-300">"Full Stack Developer"</span>,
-              </p> */}
-              <p className="text-gray-300 leading-relaxed font-mono ml-4 text-sm md:text-base">
-                <span className="text-green-400">passion</span>: <span className="text-yellow-300">"Building web apps & exploring cloud and Big Data"</span>,
-              </p>
-              <p className="text-gray-300 leading-relaxed font-mono ml-4 text-sm md:text-base">
-                <span className="text-green-400">location</span>: <span className="text-yellow-300">"Kolkata, India"</span>
-              </p>
-              <p className="text-gray-300 leading-relaxed font-mono text-sm md:text-base">{'}'}</p>
-            </div>
-            
-            <p className="text-gray-400 leading-relaxed">
-              I'm a passionate Full Stack Developer with experience in React, Node.js, and Blockchain development. 
-              I love creating beautiful, responsive, and dynamic web applications. Currently pursuing B.Tech in 
-              Computer Science with specialization in IoT, Cybersecurity & Blockchain.
-            </p>
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+          <div className="relative w-72 sm:w-96 mx-auto lg:mx-0 flex justify-center lg:justify-start">
+            {/* <div className="absolute -inset-6 bg-white/5 rounded-full blur-2xl"></div>
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 ">
+              <img
+                src="/profile-pic1.png"
+                alt="Dhiman Nayak portrait"
+                className="w-80 h-full object-cover rounded-2xl grayscale"
+                loading="lazy"
+              />
+            </div> */}
+            <div className="absolute -inset-4 rounded-full bg-white/5 blur-2xl"></div>
+              
+              {/* Image wrapper */}
+              <div className="relative w-52 h-52 sm:w-64 sm:h-64 lg:w-80 lg:h-80 overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+                <img
+                  src="/profile-pic1.png"
+                  alt="Portrait of Dhiman Nayak"
+                  className="w-full h-auto scale-[0.65] origin-top "
+                  loading="eager"
+                />
+                
+              </div>
           </div>
-          
-          {/* Education Timeline */}
-          <div className="relative">
-            <h3 className="text-xl font-bold text-purple-400 mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-purple-500 rounded-full"></span>
-              Education
-            </h3>
-            <div className="relative pl-8 border-l-2 border-purple-500/50">
-              {educationData.map((edu, index) => (
-                <div
-                  key={index}
-                  className="relative mb-8 last:mb-0"
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute -left-[41px] w-4 h-4 bg-purple-500 rounded-full border-4 border-black"></div>
-                  
-                  <div 
-                    className="bg-white/5 p-4 rounded-xl border border-white/10 hover:border-purple-500/30 transition-colors duration-300"
-                  >
-                    <span className="text-xs text-purple-400 font-medium">{edu.years}</span>
-                    <h4 className="text-white font-semibold mt-1">{edu.type}</h4>
-                    <p className="text-gray-400 text-sm">{edu.institution}</p>
-                    <p className="text-gray-500 text-xs mt-1">{edu.details}</p>
-                  </div>
-                </div>
-              ))}
+
+          <div className="space-y-6">
+            <div>
+              <p className="text-sm uppercase tracking-[0.35em] text-purple-300/80 mb-3 font-semibold">
+                Dhiman Nayak
+              </p>
+              <h3 className="text-3xl md:text-4xl font-semibold text-white">Full Stack Developer</h3>
             </div>
+
+            <p className="text-gray-400 leading-relaxed">
+              I build fast, thoughtful web applications with a focus on clean UI, smooth user experiences, and
+              reliable backend systems. I enjoy turning complex ideas into elegant digital products that feel simple
+              to use and easy to scale.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              <span className="px-4 py-2 text-xs font-semibold uppercase tracking-widest rounded-full border border-white/10 bg-white/5 text-gray-300">
+                Kolkata, India
+              </span>
+              <span className="px-4 py-2 text-xs font-semibold uppercase tracking-widest rounded-full border border-white/10 bg-white/5 text-gray-300">
+                Web Development
+              </span>
+              <span className="px-4 py-2 text-xs font-semibold uppercase tracking-widest rounded-full border border-white/10 bg-white/5 text-gray-300">
+                UI/UX Focus
+              </span>
+            </div>
+
+            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold shadow-lg shadow-black/40 hover:translate-y-[-1px] transition">
+              Discover More
+              <span aria-hidden="true">→</span>
+            </button>
           </div>
         </div>
       </div>

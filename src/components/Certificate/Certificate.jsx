@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { FaExternalLinkAlt, FaCertificate, FaHackerrank ,FaPython  } from "react-icons/fa";
+import { FaExternalLinkAlt, FaHackerrank ,FaPython  } from "react-icons/fa";
 // import { SiCoursera, SiUdemy, SiGoogle } from "react-icons/si";
 
 const certificationsData = [
@@ -30,14 +30,14 @@ const certificationsData = [
   
 ];
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" } 
-  }
-};
+// const sectionVariants = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.6, ease: "easeOut" } 
+//   }
+// };
 
 const CertificationsSection = memo(() => (
   <section id="certifications-section" className="py-16 px-4">
@@ -47,7 +47,7 @@ const CertificationsSection = memo(() => (
           <span className="text-purple-400">Certifications</span> & Achievements
         </h2>
         <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-          Professional certifications and courses I've completed
+          Professional certifications and courses I have completed
         </p>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -82,7 +82,7 @@ const CertificationsSection = memo(() => (
                   {cert.skills.map(skill => (
                     <span 
                       key={skill} 
-                      className="px-2 py-0.5 text-xs bg-white/5 text-gray-400 rounded-md text-purple-300"
+                      className="px-2 py-0.5 text-xs bg-white/5 text-gray-400 rounded-md hover:text-purple-300"
                     >
                       {skill}
                     </span>
