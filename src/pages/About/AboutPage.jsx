@@ -38,8 +38,8 @@ function AboutPage() {
             <div className="max-w-6xl mx-auto relative z-10">
                 {/* Header Section */}
                 <div className="text-center mb-10 md:mb-12">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 drop-shadow-[0_12px_35px_rgba(255,255,255,0.12)]">
-                        <span className="text-purple-300">Personal</span> Overview
+                    <h1 className="italic text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 drop-shadow-[0_12px_35px_rgba(255,255,255,0.12)]">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#c084fc] to-[#a855f7]">Personal</span> Overview
                     </h1>
                     <p className="text-gray-400 text-sm md:text-md lg:text-md max-w-3xl mx-auto">
                         Discover my journey, skills, and passion for creating innovative digital solutions
