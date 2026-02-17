@@ -1,16 +1,13 @@
 const experienceData = [
   {
-    company: "Tech Solutions Inc.",
-    years: "2024-Present",
-    position: "Software Developer Intern",
-    details: "Developing web applications using React and Node.js"
+    company: "Dkafka LLP",
+    years: "06/25 - 08/25",
+    position: "Gen AI Product Engineer Intern",
+    details: "Built scalable data pipelines and prompt-driven UI systems in TypeScript for an AI SaaS platform.",
+    status:"Completed"
   },
-  {
-    company: "Digital Innovations",
-    years: "2023-2024",
-    position: "Web Development Intern",
-    details: "Built responsive websites and collaborated on team projects"
-  }
+  
+  
 ];
 
 export default experienceData;

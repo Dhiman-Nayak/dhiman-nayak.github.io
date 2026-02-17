@@ -76,7 +76,7 @@ const Contact = () => {
       <h1 className="text-4xl md:text-4xl lg:text-4xl font-semibold tracking-tight mb-2 drop-shadow-[0_12px_35px_rgba(255,255,255,0.12)] italic">
         Get In <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#c084fc] to-[#a855f7]">Touch</span>
       </h1>
-      <p className="text-zinc-500 text-sm md:text-md max-w-xl mx-auto font-light leading-snug">
+      <p className="text-gray-500 text-sm md:text-md max-w-xl mx-auto leading-snug">
         Let&apos;s transform your vision into a digital masterpiece. Drop a line and I&apos;ll respond within 24 hours.
       </p>
     </div>

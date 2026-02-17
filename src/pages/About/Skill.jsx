@@ -1,18 +1,5 @@
+import skillCategories from "../../Data/Skills.data"
 function Skill() {
-  const skillCategories = [
-    {
-      title: 'Backend & Data',
-      skills: ['Python', 'Node.js', 'MongoDB', 'MySQL'],
-    },
-    {
-      title: 'Frontend',
-      skills: ['JavaScript', 'React', 'HTML', 'CSS', 'Tailwind'],
-    },
-    {
-      title: 'Ops & Collaboration',
-      skills: ['Git', 'Postman', 'Docker'],
-    },
-  ]
 
   return (
     <div className="space-y-8 md:space-y-10">

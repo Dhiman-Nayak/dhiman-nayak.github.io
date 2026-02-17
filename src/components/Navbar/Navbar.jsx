@@ -52,7 +52,7 @@ const Navbar = () => {
     };
 
     const navLinks = [
-        { type: 'scroll', sectionId: 'about-section', text: "About" },
+        { type: 'link', to: '/about', text: "About" },
         { type: 'scroll', sectionId: 'skills-section', text: "Skills" },
         { type: 'scroll', sectionId: 'certifications-section', text: "Certifications" },
         { type: 'scroll', sectionId: 'projects-section', text: "Projects" },
