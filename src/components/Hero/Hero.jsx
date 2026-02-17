@@ -2,7 +2,7 @@ import { memo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import { socialLinks } from '../../config/SocialMediaLink';
+import { socialLinks } from '../../Data/SocialMediaLink';
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { 
@@ -23,14 +23,6 @@ const iconContainerVariants = {
   }
 };
 
-const iconVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.4, ease: "easeOut" } 
-  }
-};
 
 
 
@@ -74,7 +66,7 @@ const HeroSection = ({ scrollToSection }) => {
 
   return (
     <section className="min-h-[100vh] flex flex-col justify-center relative z-10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 flex flex-col min-h-[100vh] justify-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8 flex flex-col min-h-[90vh] justify-center">
         <div className="grid lg:grid-cols-[1fr_minmax(0,680px)_1fr] items-center gap-8 lg:gap-16 flex-grow lg:flex-grow-0">
           <div className="hidden lg:block" aria-hidden="true"></div>
 

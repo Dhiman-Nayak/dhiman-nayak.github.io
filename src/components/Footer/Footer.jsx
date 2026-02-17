@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaInstagram, FaHeart } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { socialLinks } from '../../config/SocialMediaLink';
+import { socialLinks } from '../../Data/SocialMediaLink';
 
 
 const FooterSection = () => {

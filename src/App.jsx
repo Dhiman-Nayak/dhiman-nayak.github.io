@@ -4,8 +4,7 @@ import './App.css'
 import Line from './components/Space/Space.jsx'
 import Navbar from './components/Navbar/Navbar.jsx'
 import React, { Suspense } from 'react';
-// import hRoutes from './hidden/RountIndex.jsx';
-
+import AboutPage from './pages/About/AboutPage.jsx';
 // Main single page component
 const Home = React.lazy(() => import('./pages/Home/Home.jsx'));
 const Contact = React.lazy(() => import('./pages/Contact/Contact.jsx'));
@@ -28,6 +27,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<AboutPage />} />
             {/* {hRoutes.map((route, index) => (
               <Route
                 key={index}

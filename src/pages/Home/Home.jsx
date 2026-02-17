@@ -2,9 +2,9 @@
 import "./Home.css";
 import HeroSection from '../../components/Hero/Hero';
 import AboutSection from '../../components/About/About0';
-import SkillsSection from '../../components/skills/Skill';
-import ProjectsSection from '../Project/Project';
-import CertificationsSection from '../../components/Certificate/Certificate';
+// import SkillsSection from '../../components/skills/Skill';
+import ProjectsSection from '../../components/Project/Project';
+// import CertificationsSection from '../../components/Certificate/Certificate';
 import FooterSection from '../../components/Footer/Footer';
 // import useAnalyticsTracker from '../../components/AnalyticsTracker'
 // Import all sections from components
@@ -32,13 +32,13 @@ const Home = () => {
       <AboutSection />
 
       {/* Skills Section */}
-      <SkillsSection />
-
-      {/* Certifications Section */}
-      <CertificationsSection />
+      {/* <SkillsSection /> */}
 
       {/* Projects Section */}
       <ProjectsSection />
+
+      {/* Certifications Section */}
+      {/* <CertificationsSection /> */}
 
       {/* Footer with CTA */}
       <FooterSection />
