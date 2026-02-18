@@ -53,8 +53,8 @@ const Navbar = () => {
 
     const navLinks = [
         { type: 'link', to: '/about', text: "About" },
-        { type: 'scroll', sectionId: 'skills-section', text: "Skills" },
-        { type: 'scroll', sectionId: 'certifications-section', text: "Certifications" },
+        // { type: 'scroll', sectionId: 'skills-section', text: "Skills" },
+        // { type: 'scroll', sectionId: 'certifications-section', text: "Certifications" },
         { type: 'scroll', sectionId: 'projects-section', text: "Projects" },
         { type: 'link', to: "/contact", text: "Contact", highlight: true }
     ];
@@ -68,7 +68,7 @@ const Navbar = () => {
         }`}>
             <Link 
                 to="/" 
-                className="relative text-2xl md:text-3xl font-black tracking-tight hover:scale-105 transition-transform duration-300 group"
+                className="relative text-xl md:text-2xl font-bold tracking-tight hover:scale-105 transition-transform duration-300 group"
             >
                 <span className="relative z-10">
                     Dhiman<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">N.</span>

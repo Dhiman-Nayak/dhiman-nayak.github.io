@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { socialLinks } from '../../Data/SocialMediaLink';
 
 // Social Icon Component
-const SocialIcon = memo(({ href, icon: Icon, label, hoverClass, size = "w-10 h-10", iconSize = "w-5 h-5" }) => (
+const SocialIcon = memo(({ href, icon: Icon, label, hoverClass, size = "w-8 h-8", iconSize = "w-5 h-5" }) => (
   <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className={`flex items-center justify-center ${size} rounded-full bg-purple-500/10 border border-purple-500/30 text-gray-400 ${hoverClass} transition-all duration-300 backdrop-blur-sm`}
+    className={`flex items-center rounded-lg justify-center ${size} text-gray-400 ${hoverClass} transition-all duration-300 backdrop-blur-sm`}
     aria-label={label}
   >
     <Icon className={iconSize} />
@@ -26,6 +26,32 @@ SocialIcon.propTypes = {
   iconSize: PropTypes.string
 };
 
+const NameDisplay = memo(() => {
+  const renderLetters = (text, prefix) => (
+    text.split('').map((char, index) => (
+      <span
+        key={`${prefix}-${index}`}
+        className="transition-all duration-300 hover:text-transparent hover:[-webkit-text-stroke:1px_white] sm:hover:[-webkit-text-stroke:1.5px_white] md:hover:[-webkit-text-stroke:2px_white] cursor-pointer"
+      >
+        {char}
+      </span>
+    ))
+  );
+
+  return (
+    <div className="flex flex-col sm:flex-row justify-center items-center sm:items-end text-7xl sm:text-8xl md:text-8xl lg:text-[7.5rem] xl:text-[9.5rem] font-black tracking-tight leading-[0.8] sm:gap-5">
+      <div className="flex ">
+        {renderLetters('DHIMAN', 'first')}
+      </div>
+      <div className="flex ">
+        {renderLetters('NAYAK', 'last')}
+      </div>
+    </div>
+  );
+});
+
+NameDisplay.displayName = 'NameDisplay';
+
 const HeroSection = ({ scrollToSection }) => {
   const [showExplore, setShowExplore] = useState(true);
 
@@ -42,14 +68,14 @@ const HeroSection = ({ scrollToSection }) => {
 
   return (
     <section className="min-h-[100vh] flex flex-col justify-center relative z-10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8 flex flex-col min-h-[90vh] justify-center">
-        <div className="flex items-center justify-center gap-8 lg:gap-16 flex-grow lg:flex-grow-0">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-6 md:py-8 flex flex-col min-h-[90vh] justify-center items-center">
+        <div className="flex items-center justify-center gap-8 lg:gap-16 w-full flex-grow">
 
           {/* Text Section */}
           <div
-            className="w-full text-center">
+            className="w-full max-w-4xl text-center">
             <span 
-              className="inline-block px-4 py-2 mb-6 text-xs font-semibold tracking-[0.35em] uppercase text-purple-300/80 bg-white/5 rounded-full border border-white/10"
+              className="inline-block px-4 py-2 mb-6 text-xs font-semibold tracking-[0.35em] uppercase text-purple-400/80 bg-white/5 rounded-full border border-white/10 shadow-[0_0_25px_rgba(192,132,252,0.65)] animate-pulse"
               
             >
               👋 Welcome to my portfolio
@@ -59,26 +85,13 @@ const HeroSection = ({ scrollToSection }) => {
               <span className="block text-base sm:text-lg md:text-xl mb-4 text-gray-300">
                 Hi, I&apos;m
               </span>
-              <span className="flex flex-wrap justify-center text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] xl:text-[9.5rem] font-black tracking-tight leading-tight font-mono">
-                {'Dhiman Nayak'.split('').map((char, index) => (
-                  <span
-                    key={index}
-                    className={`transition-all duration-300 hover:text-transparent ${
-                      char === ' ' 
-                        ? 'w-4 sm:w-5 md:w-6 lg:w-7 xl:w-8' 
-                        : 'hover:[-webkit-text-stroke:1px_white] sm:hover:[-webkit-text-stroke:1.5px_white] md:hover:[-webkit-text-stroke:2px_white] cursor-pointer'
-                    }`}
-                  >
-                    {char === ' ' ? '\u00A0' : char}
-                  </span>
-                ))}
-              </span>
+              <NameDisplay />
             </h1>
 
             {/* Role */}
             <div className="mb-8">
               <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed">
-                I&apos;m a <span className="text-purple-300 font-semibold">Full Stack Developer</span>
+                <span className="text-purple-300 font-semibold">Full Stack Developer</span>
               </p>
             </div>
 
@@ -96,12 +109,12 @@ const HeroSection = ({ scrollToSection }) => {
             </div>
           </div>
 
-          {/* Desktop Social Media Icons - Fixed at left bottom */}
-          <div className="hidden lg:flex z-50">
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-px h-16 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
+          {/* Desktop Social Media Icons - Fixed at right */}
+          {/* <div className="hidden lg:flex fixed right-8 top-1/2 -translate-y-1/2 z-50">
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-px h-10 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
               
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2">
                 {socialLinks.map(link => (
                   <SocialIcon key={link.label} {...link} />
                 ))}
@@ -109,9 +122,9 @@ const HeroSection = ({ scrollToSection }) => {
 
               <div className="w-px h-16 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
             </div>
-          </div>
+          </div> */}
         </div>
-
+        
         {/* Scroll Indicator - Hidden on scroll */}
         <div 
           className={`flex justify-center mt-auto mb-8 lg:mt-16 lg:mb-0 transition-all duration-500 ${
@@ -140,6 +153,7 @@ const HeroSection = ({ scrollToSection }) => {
             </div>
           </button>
         </div>
+        <div className='h-10'></div>
       </div>
     </section>
   );

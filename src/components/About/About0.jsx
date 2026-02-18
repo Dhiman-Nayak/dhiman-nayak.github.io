@@ -1,5 +1,5 @@
 import { memo } from 'react';
-
+import { Link } from 'react-router-dom';
 const AboutSection = memo(() => (
   <section id="about-section" className="px-10 pb-12">
   <div className="container mx-auto max-w-6xl">
@@ -27,7 +27,7 @@ const AboutSection = memo(() => (
 
         {/* Right Column: Text Content */}
         {/* Changed space-y-6 to space-y-8 (mobile) and space-y-12 (desktop) to open up the internal spacing */}
-        <div className="space-y-8 md:space-y-12">
+        <div className="space-y-4 md:space-y-6">
           <div>
             <p className="text-md uppercase tracking-[0.35em] text-purple-300/80 mb-4 font-semibold">
               Dhiman Nayak
@@ -37,30 +37,27 @@ const AboutSection = memo(() => (
             </h3>
           </div>
 
-          <p className="text-gray-400 leading-loose text-lg">
-            I build fast, thoughtful web applications with a focus on clean UI,
-            smooth user experiences, and reliable backend systems. I enjoy
-            turning complex ideas into elegant digital products that feel simple
-            to use and easy to scale.
+          <p className="text-gray-400 leading-[1.4] text-md">
+            I build, experiment, and optimize. <div className='h-2'/>
+            I’m a B.Tech Computer Science student passionate about transforming raw data into meaningful insights. With hands-on experience in React and Node.js, I understand both frontend systems and backend architecture. <div className='h-2'/>
+            Currently, I’m expanding my expertise in Data domain, with a strong interest in building efficient data pipelines and intelligent systems. 
           </p>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap mt-0">
             <span className="px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-full border border-white/10 bg-white/5 text-gray-300">
               Kolkata, India
             </span>
-            <span className="px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-full border border-white/10 bg-white/5 text-gray-300">
+            {/* <span className="px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-full border border-white/10 bg-white/5 text-gray-300">
               Web Development
-            </span>
+            </span> */}
             {/* <span className="px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-full border border-white/10 bg-white/5 text-gray-300">
               UI/UX Focus
             </span> */}
           </div>
-
-          {/* Button is now pushed further down by the space-y-12 wrapper */}
-          <button className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-semibold shadow-lg shadow-black/40 hover:translate-y-[-1px] transition">
+          <Link className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-semibold shadow-lg shadow-black/40 hover:translate-y-[-1px] transition" to="/about">
             Discover More
             <span aria-hidden="true">→</span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

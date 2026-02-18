@@ -47,7 +47,7 @@ function AboutPage() {
                 </div>
 
                 {/* Navigation Tabs */}
-                <div className="flex justify-center mb-8 px-4">
+                <div className="flex justify-center mb-1 px-4">
                     <div className="grid grid-cols-2 md:flex items-center justify-center gap-2 p-1.5 bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl w-full sm:w-auto">
                         {tabs.map((tab) => {
                             const isActive = activeTab === tab.id;

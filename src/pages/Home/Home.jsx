@@ -6,6 +6,7 @@ import AboutSection from '../../components/About/About0';
 import ProjectsSection from '../../components/Project/Project';
 // import CertificationsSection from '../../components/Certificate/Certificate';
 import FooterSection from '../../components/Footer/Footer';
+import Quote from "../../components/Quote/Quote";
 // import useAnalyticsTracker from '../../components/AnalyticsTracker'
 // Import all sections from components
 // import {
@@ -36,6 +37,9 @@ const Home = () => {
 
       {/* Projects Section */}
       <ProjectsSection />
+      
+      {/* Quote Section */}
+      <Quote />
 
       {/* Certifications Section */}
       {/* <CertificationsSection /> */}
