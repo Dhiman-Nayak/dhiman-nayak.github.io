@@ -46,10 +46,15 @@ const Quote = memo(() => {
 
       <div className="container mx-auto max-w-4xl relative z-10">
         {/* Section Heading */}
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="text-xl md:text-md font-semibold text-white">Words of Wisdom</h2>
-          <div className="flex-1 h-px bg-white/10"></div>
+        <div className="mb-12">
+          <h2 className="text-2xl md:text-3xl text-center mb-2 text-white">
+            Words of <span className="text-purple-400">Wisdom</span>
+          </h2>
+          <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
+            Inspirational quotes to fuel your journey
+          </p>
         </div>
+        
         {/* Main Quote Card */}
         <div className="relative bg-zinc-900/[0.4] backdrop-blur-xl border border-zinc-800/50 rounded-[2.5rem] p-4 md:p-6 lg:px-10 shadow-2xl overflow-hidden group">
           {/* Decorative Corner Elements */}

@@ -4,10 +4,14 @@ const AboutSection = memo(() => (
   <section id="about-section" className="px-10 pb-12">
   <div className="container mx-auto max-w-6xl">
     <div>
-      {/* Header - Top spacing remains untouched */}
-      <div className="flex items-center gap-4 mb-10">
-        <h2 className="text-3xl md:text-4xl font-semibold text-white">About</h2>
-        <div className="flex-1 h-px bg-white/10"></div>
+      {/* Header */}
+      <div className="mb-12">
+        <h2 className="text-2xl md:text-3xl text-center mb-2 text-white">
+          About <span className="text-purple-400">Me</span>
+        </h2>
+        <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
+          Get to know more about who I am and what I do
+        </p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
@@ -54,7 +58,7 @@ const AboutSection = memo(() => (
               UI/UX Focus
             </span> */}
           </div>
-          <Link className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-semibold shadow-lg shadow-black/40 hover:translate-y-[-1px] transition" to="/about">
+          <Link className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white text-black font-semibold shadow-lg shadow-black/40 hover:translate-y-[-1px] transition" to="/about">
             Discover More
             <span aria-hidden="true">→</span>
           </Link>

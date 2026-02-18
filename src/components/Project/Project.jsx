@@ -8,7 +8,7 @@ const ProjectsSection = memo(() => (
   <section id="projects-section" className="py-16 px-4">
     <div className="container mx-auto max-w-6xl">
       <div>
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
+        <h2 className="text-2xl md:text-3xl  text-center mb-2 text-white">
           Featured <span className="text-purple-400">Projects</span>
         </h2>
         <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
