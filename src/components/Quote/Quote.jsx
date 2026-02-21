@@ -88,9 +88,8 @@ const Quote = memo(() => {
               </p>
             </blockquote>
 
-            {/* Author - Left aligned with line */}
-            <div className="flex items-right gap-3 px-4">
-              <div className="h-px w-8 md:w-12 bg-gradient-to-r from-purple-300/40 to-transparent" />
+            <div className="flex gap-3 px-4 justify-end items-center">
+              <div className="h-px w-8 md:w-12 bg-gradient-to-r from-transparent to-purple-300/40" />
               <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-purple-300/70 font-medium">
                 {currentQuote?.a}
               </p>

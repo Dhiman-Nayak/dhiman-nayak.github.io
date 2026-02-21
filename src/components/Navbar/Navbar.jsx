@@ -93,7 +93,7 @@ const Navbar = () => {
                         <Link key={link.to} to={link.to}>
                             <button className={`relative px-4 lg:px-5 py-2.5 text-sm lg:text-base font-medium rounded-xl transition-all duration-300 hover:scale-105 overflow-hidden group ${
                                 link.highlight 
-                                    ? 'bg-purple-600 text-white border-2 border-purple-500 shadow-lg shadow-purple-500/30 hover:bg-purple-500 hover:shadow-xl hover:shadow-purple-500/50' 
+                                    ? 'bg-gradient-to-br from-violet-500/20 to-purple-500/20 backdrop-blur-md text-white border border-violet-400/50 shadow-lg shadow-violet-500/20 hover:from-violet-500/30 hover:to-purple-500/30 hover:border-violet-300/70 hover:shadow-xl hover:shadow-violet-400/30' 
                                     : 'text-gray-300 hover:text-white'
                             }`}>
                                 <span className="relative z-10">{link.text}</span>
@@ -177,7 +177,7 @@ const Navbar = () => {
                             >
                                 <div className={`relative px-8 py-4 text-xl font-semibold rounded-2xl transition-all duration-300 group-hover:scale-105 text-center overflow-hidden backdrop-blur-md ${
                                     link.highlight 
-                                        ? 'bg-purple-600 text-white border-2 border-purple-500 shadow-2xl shadow-purple-500/40 group-hover:bg-purple-500' 
+                                        ? 'bg-gradient-to-br from-violet-500/20 to-purple-500/20 backdrop-blur-xl text-white border-2 border-violet-400/50 shadow-2xl shadow-violet-500/30 group-hover:from-violet-500/30 group-hover:to-purple-500/30 group-hover:border-violet-300/70' 
                                         : 'text-white border border-white/10 bg-white/5 backdrop-blur-sm group-hover:border-purple-500/50 group-hover:bg-white/10'
                                 }`}>
                                     <span className="relative z-10">{link.text}</span>

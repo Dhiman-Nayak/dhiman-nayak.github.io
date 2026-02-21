@@ -34,16 +34,16 @@ const quoteArray = [
     "q":"SIMPLICITY, PATIENCE, COMPASSION. THESE THREE ARE YOUR GREATEST TREASURES. SIMPLE IN   ACTIONS AND THOUGHTS, YOU RETURN TO THE SOURCE OF BEING. PATIENT WITH BOTH FRIENDS AND ENEMIES, YOU ACCORD WITH THE WAY THINGS ARE. COMPASSIONATE TOWARD YOURSELF, YOU RECONCILE ALL BEINGS IN THE WORLD.",
     "a":"LAO TZU"
 },
-    // {
-    //     "id":8,
-    //     "q":"The fragrance of flowers spreads only in the direction of the wind. But the goodness of a person spreads in all directions.",
-    //     "a":"Chanakya"
-    // },
-    // {
-    //     "id":9,
-    //     "q":"The fragrance of flowers spreads only in the direction of the wind. But the goodness of a person spreads in all directions.",
-    //     "a":"Chanakya"
-    // },
+    {
+    "id": 8,
+    "q": "Nothing is impossible. The word itself says 'I'm possible!'",
+    "a": "Audrey Hepburn"
+},
+    {
+        "id":9,
+        "q":"You are what you believe in. You become that which you believe you can become",
+        "a":"From Bhagavad Gita"
+    },
     // {
     //     "id":10,
     //     "q":"The fragrance of flowers spreads only in the direction of the wind. But the goodness of a person spreads in all directions.",
